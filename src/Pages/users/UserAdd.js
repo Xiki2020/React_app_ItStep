@@ -1,13 +1,13 @@
 import React from 'react';
 import { useState } from "react";
 
-const UserAdd = ({ users, setUsers }) => {
+const UserAdd = ({ users, setUsers, closeModal }) => {
 	const onChange = (e) => {
 		const field = e.target.id;
 		setValues({ ...values, [field]: e.target.value })
 	};
 	const addUser = () => {
-		setUsers([values, ...users]);
+		setUsers([values, ...users])
 		setValues(
 			{
 				name: '',
@@ -15,6 +15,7 @@ const UserAdd = ({ users, setUsers }) => {
 				country: '',
 			}
 		)
+		closeModal()
 	}
 
 	const [values, setValues] = useState({
@@ -42,7 +43,6 @@ const UserAdd = ({ users, setUsers }) => {
 					id={value}
 					key={index}
 					value={values[value]}
-					//   type={values[value]}
 					placeholder={`Input user ${value}`}
 					onChange={onChange}
 				/>
