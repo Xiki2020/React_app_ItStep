@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo } from 'react'
 import MyModal from '../../components/MyModal/MyModal'
 import Crud from '../../service/crud.service'
+import Spinner from '../../components/Spinner'
 
 import { useState } from "react"
 import "./posts.css"
@@ -83,13 +84,7 @@ const Posts = () => {
 				<option defaultValue value="0">По возрастанию</option>
 				<option value="1">По убыванию</option>
 			</select>
-			<div
-				className="spinner-border text-primary"
-				role="status"
-				hidden={loading}
-			>
-				<span className="sr-only"></span>
-			</div>
+			<Spinner isLoading={loading} />
 			<div
 				className="posts-container mt-5"
 				hidden={!loading}
